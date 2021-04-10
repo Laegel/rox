@@ -1,0 +1,70 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in library 'loxlib'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--lib",
+                    "--package=rust-lox"
+                ],
+                "filter": {
+                    "name": "loxlib",
+                    "kind": "lib"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'loxbin'",
+            "program": "${workspaceRoot}/target/debug/loxbin",
+            "stopOnEntry": false,
+            "sourceLanguages": [
+                "rust"
+            ],
+            // "cargo": {
+            //     "args": [
+            //         "build",
+            //         "--bin=loxbin",
+            //         "--package=rust-lox"
+            //     ],
+            //     "filter": {
+            //         "name": "loxbin",
+            //         "kind": "bin"
+            //     }
+            // },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'loxbin'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=loxbin",
+                    "--package=rust-lox"
+                ],
+                "filter": {
+                    "name": "loxbin",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}
